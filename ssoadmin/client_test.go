@@ -68,3 +68,4 @@ func verifyClient(t *testing.T, ctx context.Context, c *ssoadmin.Client) {
 	require.Equal(t, &types.AdminUser{Id: types.PrincipalId{Name: "testuser", Domain: "vsphere.local"}, Kind: "person"}, user)
 
 }
+ 
