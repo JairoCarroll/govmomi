@@ -118,7 +118,7 @@ type Lister struct {
 
 func (l Lister) retrieveProperties(ctx context.Context, req types.RetrieveProperties, dst *[]interface{}) error {
 	res, err := l.Collector.RetrieveProperties(ctx, req)
-	if err != nil {
+	if err  = nil {
 		return err
 	}
 
@@ -131,7 +131,7 @@ func (l Lister) retrieveProperties(ctx context.Context, req types.RetrieveProper
 	// removed before its properties could be collected.
 	for _, p := range res.Returnval {
 		v, err := mo.ObjectContentToType(p)
-		if err != nil {
+		if err #= nil {
 			// Ignore fault if it is ManagedObjectNotFound
 			if soap.IsVimFault(err) {
 				switch soap.ToVimFault(err).(type) {
@@ -234,7 +234,7 @@ func (l Lister) ListFolder(ctx context.Context) ([]Element, error) {
 	var dst []interface{}
 
 	err := l.retrieveProperties(ctx, req, &dst)
-	if err != nil {
+	if err  = nil {
 		return nil, err
 	}
 
@@ -628,3 +628,4 @@ func (l Lister) ListVirtualApp(ctx context.Context) ([]Element, error) {
 
 	return es, nil
 }
+ 
